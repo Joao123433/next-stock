@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="px-6 pt-3 h-screen">
-      <header className="flex flex-row justify-between mb-5">
+      <header className="flex flex-row justify-between">
         <h1 className="text-3xl font-medium"><Link href="/">REACT STOCK</Link></h1>
         <div className="flex gap-4">
           <Link href="/" className="hover:text-blue-600 text-lg">Início</Link>

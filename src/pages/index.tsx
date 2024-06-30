@@ -25,15 +25,15 @@ export default function Home() {
           <p className="text-center text-4xl mb-6">{itemsAcabando.length}</p>
         </div>
       </section>
-      <section className="flex flex-row gap-7 justify-between">
-        <table className="w-1/2">
+      <section className="flex flex-row gap-7 justify-between h-full">
+        <table className="w-1/2 h-full">
           <thead className="bg-zinc-900 py-4 px-5 flex rounded-md">
             <tr className="w-full flex justify-between">
               <th className="w-2/4 text-left">Itens Recentes</th>
               <th className="w-2/4">Ações</th>
             </tr>
           </thead>
-          <tbody className="py-1 px-5 flex flex-col gap-5 mt-3">
+          <tbody className="py-1 px-5 flex flex-col gap-5 mt-3 overflow-y-scroll l h-5/6">
             {itemsRecentes.length === 0
                 ?
                 <tr>
@@ -53,7 +53,7 @@ export default function Home() {
               }
           </tbody>
         </table>
-        <table className="w-1/2">
+        <table className="w-1/2 h-full">
           <thead className="bg-zinc-900 py-4 px-5 flex rounded-md">
             <tr className="w-full flex justify-between">
               <th className="w-2/6 text-left">Itens Acabando</th>
@@ -61,7 +61,7 @@ export default function Home() {
               <th className="w-2/6 text-left">Ações</th>
             </tr>
           </thead>
-          <tbody className="py-1 px-5 flex flex-col gap-5 mt-3">
+          <tbody className="py-1 px-5 flex flex-col gap-5 mt-3 overflow-y-scroll h-5/6">
             {itemsAcabando.length === 0
               ?
               <tr>
