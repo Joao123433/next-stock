@@ -1,10 +1,10 @@
-import { SetStateAction, useState } from "react";
+import { ChangeEvent, SetStateAction, useState } from "react";
 import { UseItem } from "./UseItem";
 
 export default function UseNewItems() {
   const [ name, setName ] = useState("")
-  const [ quantity, setQuantity ] = useState(0)
-  const [ price, setPrice ] = useState(0)
+  const [ quantity, setQuantity ] = useState("")
+  const [ price, setPrice ] = useState("")
   const [ category, setCategory ] = useState("")
   const [ description, setDescription ] = useState("")
   const { createItem } = UseItem()
@@ -13,11 +13,11 @@ export default function UseNewItems() {
     setName(ev.target.value)
   }
 
-  const settingQuantity = (ev: { target: { value: SetStateAction<number>; }; }) => {
+  const settingQuantity = (ev: ChangeEvent<HTMLInputElement>) => {
     setQuantity(ev.target.value)
   }
 
-  const settingPrice = (ev: { target: { value: SetStateAction<number>; }; }) => {
+  const settingPrice = (ev: ChangeEvent<HTMLInputElement>) => {
     setPrice(ev.target.value)
   }
 
@@ -34,8 +34,8 @@ export default function UseNewItems() {
     
     const item = {
       name: name,
-      amount: quantity,
-      price: price,
+      amount: Number(quantity),
+      price: Number(price),
       category: category,
       description: description,
       createdAt: new Date(),
@@ -43,8 +43,8 @@ export default function UseNewItems() {
     }
 
     setName("")
-    setQuantity(0)
-    setPrice(0)
+    setQuantity("")
+    setPrice("")
     setCategory("")
     setDescription("")
 
