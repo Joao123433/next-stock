@@ -4,16 +4,16 @@ import { ItemsFetch } from "@/interfaces | types/ItemsFetch"
 
 export default function UseUpdateItems(itemId: string) {
   const { items } = UseItem()
-  const findItem = items.find(item => item._id === itemId) as ItemsFetch
+  const findItem = items.find(item => item._id === itemId)
 
-  const [ name, setName ] = useState(findItem.name)
-  const [ quantity, setQuantity ] = useState<string>(String(findItem.amount))
-  const [ price, setPrice ] = useState<string>(String(findItem.price))
-  const [ category, setCategory ] = useState(findItem.category)
-  const [ description, setDescription ] = useState(findItem.description)
+  const [ name, setName ] = useState(findItem?.name as string)
+  const [ quantity, setQuantity ] = useState<string>(String(findItem?.amount))
+  const [ price, setPrice ] = useState<string>(String(findItem?.price))
+  const [ category, setCategory ] = useState(findItem?.category as string)
+  const [ description, setDescription ] = useState(findItem?.description as string)
   const { updateItem } = UseItem()
 
-  const settingName = (ev: { target: { value: SetStateAction<string> } }) => {
+  const settingName = (ev: ChangeEvent<HTMLInputElement>) => {
     setName(ev.target.value)
   }
 
@@ -37,13 +37,13 @@ export default function UseUpdateItems(itemId: string) {
     ev.preventDefault()
 
     const item = {
-      _id: findItem._id,
+      _id: itemId,
       name: name,
       amount: Number(quantity),
       price: Number(price),
       category: category,
       description: description,
-      createdAt: findItem.createdAt,
+      createdAt: findItem?.createdAt as Date,
       updatedAt: new Date()
     }
 

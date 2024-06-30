@@ -34,7 +34,7 @@ export function ItemProvider({ children }: ItemsInterface) {
 
     const itemsFilter = items.filter(item => item._id != updateItem._id)
 
-    setItems([...itemsFilter, updateItem])
+    setItems([updateItem, ...itemsFilter])
     
     toast("Item Atualizado", { theme: "dark" })
   }
