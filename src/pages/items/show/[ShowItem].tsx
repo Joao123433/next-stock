@@ -43,8 +43,24 @@ export default function ShowItem() {
           </div>
 
           <div className="flex gap-4">
-            <p>Cadastrado em: {item?.createdAt ? new Intl.DateTimeFormat("pt-BR").format(new Date(item?.createdAt as Date)) : ""}</p>
-            <p>Cadastrado em: {item?.updatedAt ? new Intl.DateTimeFormat("pt-BR").format(new Date(item?.updatedAt as Date)) : ""}</p>
+            <p>Cadastrado em: {item?.createdAt 
+              ? 
+                new Intl.DateTimeFormat("pt-BR", 
+                { year: "numeric", month: "numeric", day: "2-digit", hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: false })
+                .format(new Date(item?.createdAt as Date)) 
+              : 
+                ""
+              }
+            </p>
+            <p>Cadastrado em: {item?.updatedAt 
+              ? 
+                new Intl.DateTimeFormat("pt-BR", 
+                { year: "numeric", month: "numeric", day: "2-digit", hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: false })
+                .format(new Date(item?.updatedAt as Date)) 
+              : 
+                ""
+              }
+            </p>
           </div>
         </div>
       </section>
